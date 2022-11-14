@@ -47,7 +47,7 @@ class Car
 		// print_r($_FILES);die;
 		$db = new DB();
 		$filename = $_FILES["image"]["name"];
-		$tempname = $_FILES["image"]["tmp_name"];
+		$tempname = $_FILES["image"]["name"];
 		$folder = "./images/" . $filename;
 		$stmt = $db->conn->prepare("INSERT INTO `cars`( `year`, `model`, `about`,`price`, `image`, `made_by_id`) VALUES (?,?,?,?,?,?)");
 		$stmt->bind_param("issisi", $_POST['year'], $_POST['model'], $_POST['about'], $_POST['price'], $filename, $_POST['carBrand']);

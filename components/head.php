@@ -51,7 +51,7 @@ $_OUTER_PATH = "http://" . $_SERVER['SERVER_NAME'] . "/php/multipagecrud";
                 <a class="nav-link" aria-current="page" href="<?=$_OUTER_PATH?>/index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?=$_OUTER_PATH?>/views/add.php">Add new car</a>
+                <a class="nav-link" href="<?=$_OUTER_PATH?>/views/cars/add.php">Add new car</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="<?=$_OUTER_PATH?>/login.php">Log in</a>

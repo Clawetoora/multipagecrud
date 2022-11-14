@@ -1,4 +1,7 @@
-<?php include "../components/head.php";
+<?php
+$_INNER_PATH = $_SERVER['DOCUMENT_ROOT'] . "/php/multipagecrud";
+$_OUTER_PATH = "http://" . $_SERVER['SERVER_NAME'] . "/php/multipagecrud";
+include "$_INNER_PATH/components/head.php";
 include $_INNER_PATH . "/routes.php";
 
 ?>

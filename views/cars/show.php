@@ -1,4 +1,7 @@
-<?php include "../components/head.php";
+<?php
+$_INNER_PATH = $_SERVER['DOCUMENT_ROOT'] . "/php/multipagecrud";
+$_OUTER_PATH = "http://" . $_SERVER['SERVER_NAME'] . "/php/multipagecrud";
+include "$_INNER_PATH/components/head.php";
 include $_INNER_PATH . "/routes.php";
 
 ?>
@@ -19,7 +22,7 @@ include $_INNER_PATH . "/routes.php";
         <p>The price of the vehicle <?=$car->price?>Eur</p>
         </div>
         <div class="edit-delete">
-        <form action="<?=$_OUTER_PATH . '/views/edit.php'?>" method="get">
+        <form action="<?=$_OUTER_PATH . '/views/cars/edit.php'?>" method="get">
             <input type="hidden" name="id" value="<?=$car->id?>">
             <button type="submit" name="edit" class="btn-edit">edit</button>
         </form>
