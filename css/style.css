@@ -195,6 +195,7 @@ img {
   gap: 15px;
   border: 1px solid #8c1012;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .car-card-img {
@@ -213,6 +214,7 @@ img {
 
 .car-card-text {
   display: flex;
+  width: 30%;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
