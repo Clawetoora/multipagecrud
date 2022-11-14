@@ -9,10 +9,10 @@ include $_INNER_PATH . "/routes.php";
         <label for="f2">Year</label>
         <input type="number"name="year" id="f2" class="form-control"  placeholder="eg. 2022">
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="f2">Made by</label>
         <input type="text" name="made_by" id="f2" class="form-control"  placeholder="Company name">
-    </div>
+    </div> -->
     <div class="form-group">
         <label for="f2">Model</label>
         <input type="text" name="model" id="f2" class="form-control"  placeholder="Model of a car">
@@ -27,8 +27,14 @@ include $_INNER_PATH . "/routes.php";
         <label for="f4">About</label>
         <textarea name="about" cols="40" rows="3" id="f4" class="form-control inputs-design" placeholder="Short text about car" ></textarea>
     </div>
+    <select class="form-select" name="carBrand">
+         <?php foreach ($carBrands as $key => $bc) {?>
+            <option value="<?=$bc->id?>"><?=$bc->brand?></option>
+        <?php }?>
+    </select>
 
-    <div class="form-group mt-3">
+
+    <div class="form-group mt-3" name="carBrand">
         <label for="uploadfile">Upload a photo</label>
                 <input class="form-control inputs-design" type="file" name="image" value="" />
         </div>

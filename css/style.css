@@ -272,3 +272,23 @@ img {
   color: white;
   width: 100%;
 }
+
+.form-select {
+  margin-top: 5px;
+  background-color: transparent;
+  color: white;
+}
+
+.form-select:focus {
+  box-shadow: none;
+  border: none;
+}
+
+.form-select option {
+  color: white;
+  background-color: #2d3436;
+}
+.form-select option:hover {
+  color: white;
+  background-color: #2d4a52;
+}

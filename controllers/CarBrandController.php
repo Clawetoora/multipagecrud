@@ -1,42 +1,38 @@
 <?php
-include $_INNER_PATH . "./models/Car.php";
+include $_INNER_PATH . "./models/CarBrand.php";
 
-class CarsController
+class CarsBrandController
 {
 
 	public static function index()
 	{
-		$cars = Car::all();
-		return $cars;
+		$brands = CarBrand::all();
+		return $brands;
 	}
 
 	public static function store()
 	{
-		Car::create();
+		CarBrand::create();
 	}
 
 	public static function show()
 	{
-		$car = Car::find($_GET['id']);
-		return $car;
+		$brand = CarBrand::find($_GET['id']);
+		return $brand;
 	}
 
 	public static function update()
 	{
-		$car = new Car();
-		$car->id = $_POST['id'];
-		$car->year = $_POST['year'];
-		$car->model = $_POST['model'];
-		$car->about = $_POST['about'];
-		$car->price = $_POST['price'];
-		$car->image = $_FILES["image"]["name"];
-		$car->madeBy = $_POST['made_by_id'];
-		$car->update();
+		$brand = new Car();
+		$brand->id = $_POST['id'];
+		$brand->madeBy = $_POST['made_by'];
+
+		$brand->update();
 	}
 
 	public static function destroy()
 	{
-		Car::destroy($_POST['id']);
+		CarBrand::destroy($_POST['id']);
 	}
 
 	// public static function getfilterParams()
@@ -52,8 +48,8 @@ class CarsController
 
 	public static function search()
 	{
-		$cars = Car::search();
-		return $cars;
+		$brands = CarBrand::search();
+		return $brands;
 	}
 	// public static function showFiltered()
 	// {

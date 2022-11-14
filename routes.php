@@ -3,11 +3,12 @@
 $_INNER_PATH = $_SERVER['DOCUMENT_ROOT'] . "/php/multipagecrud";
 $_OUTER_PATH = "http://" . $_SERVER['SERVER_NAME'] . "/php/multipagecrud";
 include $_INNER_PATH . "/controllers/CarsController.php";
+include $_INNER_PATH . "/controllers/CarBrandController.php";
 
 $edit = false;
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	if (isset($_POST['save'])) {
-		
+
 		CarsController::store();
 		header("Location: http://" . $_SERVER['SERVER_NAME'] . "/php/multipagecrud/index.php");
 		die;
@@ -57,4 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 		$cars = CarsController::search();
 
 	}
+
+	$carBrands = CarsBrandController::index();
+	// print_r($carBrands);
 }

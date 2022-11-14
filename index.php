@@ -11,7 +11,7 @@ include $_INNER_PATH . "/routes.php";
             <img src="./images/<?=$car->image?>" alt="" />
           </div>
           <div class="about-container">
-            <h1 id="car-title"><?=$car->madeBy?></h1>
+          <h1 id="car-title"><?=$car->madeBy?></h1>
             <h3 id="model-year"><?=$car->model?> made in
 	<?=$car->year?></h3>
             <p id="about-car">
@@ -26,6 +26,7 @@ include $_INNER_PATH . "/routes.php";
 
 
         <?php }?>
+
         </div>
       </div>
     </div>

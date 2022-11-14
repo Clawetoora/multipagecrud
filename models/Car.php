@@ -1,39 +1,42 @@
 <?php
 
-include $_INNER_PATH . "./models/DB.php";
+// include $_INNER_PATH . "./models/DB.php";
 
 class Car
 {
 	public $id;
 	public $year;
-	public $madeBy;
 	public $model;
 	public $about;
 	public $price;
 	public $image;
+	public $madeById;
+	public $madeBy;
 
-	public function __construct($id = null, $year = null, $madeBy = null, $model = null, $about = null, $price = null, $image = null)
+	public function __construct($id = null, $year = null, $model = null, $about = null, $price = null, $image = null, $madeById = null, $madeBy = null)
 	{
 		$this->id = $id;
 		$this->year = $year;
-		$this->madeBy = $madeBy;
 		$this->model = $model;
 		$this->about = $about;
 		$this->price = $price;
 		$this->image = $image;
+		$this->madeById = $madeById;
+		$this->madeBy = $madeBy;
 	}
 
 	public static function all()
 	{
 		$cars = [];
 		$db = new DB();
-		$query = "SELECT * FROM `cars`";
+		$query = "SELECT `c`.`id` , `c`.`year`, `c`.`model`, `c`.`about`, `c`.`price`, `c`.`image`, `c`.`made_by_id`, `cb`.`made_by`   FROM `cars` `c` join `cars_brands` `cb` ON `cb` . `id` = `c` . `made_by_id`;";
 		$result = $db->conn->query($query);
 
 		while ($row = $result->fetch_assoc()) {
-			$cars[] = new Car($row['id'], $row['year'], $row['made_by'], $row['model'], $row['about'], $row['price'], $row['image']);
+			$cars[] = new Car($row['id'], $row['year'], $row['model'], $row['about'], $row['price'], $row['image'], $row['made_by_id'], $row['made_by']);
 		}
 		$db->conn->close();
+		// print_r($cars);
 		return $cars;
 	}
 
@@ -46,8 +49,8 @@ class Car
 		$filename = $_FILES["image"]["name"];
 		$tempname = $_FILES["image"]["tmp_name"];
 		$folder = "./images/" . $filename;
-		$stmt = $db->conn->prepare("INSERT INTO `cars`( `year`, `made_by`, `model`, `about`,`price`, `image`) VALUES (?,?,?,?,?,?)");
-		$stmt->bind_param("isssis", $_POST['year'], $_POST['made_by'], $_POST['model'], $_POST['about'], $_POST['price'], $filename);
+		$stmt = $db->conn->prepare("INSERT INTO `cars`( `year`, `model`, `about`,`price`, `image`, `made_by_id`) VALUES (?,?,?,?,?,?)");
+		$stmt->bind_param("issisi", $_POST['year'], $_POST['model'], $_POST['about'], $_POST['price'], $filename, $_POST['carBrand']);
 		$stmt->execute();
 
 		if (move_uploaded_file($tempname, $folder)) {
@@ -64,11 +67,11 @@ class Car
 	{
 		$car = new Car();
 		$db = new DB();
-		$query = "SELECT * FROM `cars` where `id`=" . $id;
+		$query = "SELECT `c`.`id` , `c`.`year`, `c`.`model`, `c`.`about`, `c`.`price`, `c`.`image`, `c`.`made_by_id`, `cb`.`made_by` FROM `cars` `c` join `cars_brands` `cb` ON `cb` . `id` = `c` . `made_by_id` where `c`.`id`=" . $id;
 		$result = $db->conn->query($query);
-
+		// print_r($_GET);
 		while ($row = $result->fetch_assoc()) {
-			$car = new Car($row['id'], $row['year'], $row['made_by'], $row['model'], $row['about'], $row['price'], $row['image']);
+			$car = new Car($row['id'], $row['year'], $row['model'], $row['about'], $row['price'], $row['image'], $row['made_by_id'], $row['made_by']);
 		}
 		$db->conn->close();
 		return $car;
@@ -80,8 +83,8 @@ class Car
 		$tempname = $_FILES["image"]["tmp_name"];
 		$folder = "./images/" . $filename;
 		$db = new DB();
-		$stmt = $db->conn->prepare("UPDATE `cars` SET `year`= ? ,`made_by`= ? ,`model`= ? ,`about`= ? , `price`= ?, `image`= ? WHERE `id` = ?");
-		$stmt->bind_param("isssisi", $_POST['year'], $_POST['made_by'], $_POST['model'], $_POST['about'], $_POST['price'], $filename, $_POST['id']);
+		$stmt = $db->conn->prepare("UPDATE `cars` SET `year`= ? ,`model`= ? ,`about`= ? , `price`= ?, `image`= ? , `made_by_id` = ? WHERE `id` = ?");
+		$stmt->bind_param("issisii", $_POST['year'], $_POST['model'], $_POST['about'], $_POST['price'], $filename, $_POST['carBrand'], $_POST['id']);
 		$stmt->execute();
 		if (move_uploaded_file($tempname, $folder)) {
 			echo "<h3>  Image uploaded successfully!</h3>";
@@ -107,11 +110,11 @@ class Car
 	{
 		$cars = [];
 		$db = new DB();
-		$query = "SELECT * FROM `cars` WHERE `made_by` LIKE \"%" . $_GET['search'] . "%\"";
+		$query = "SELECT `c`.`id` , `c`.`year`, `c`.`model`, `c`.`about`, `c`.`price`, `c`.`image`, `c`.`made_by_id`, `cb`.`made_by` FROM `cars` `c` join `cars_brands` `cb` ON `cb` . `id` = `c` . `made_by_id` where `made_by` LIKE \"%" . $_GET['search'] . "%\"";
 		$result = $db->conn->query($query);
 
 		while ($row = $result->fetch_assoc()) {
-			$cars[] = new Car($row['id'], $row['year'], $row['made_by'], $row['model'], $row['about'], $row['price'], $row['image']);
+			$cars[] = new Car($row['id'], $row['year'], $row['model'], $row['about'], $row['price'], $row['image'], $row['made_by_id'], $row['made_by']);
 		}
 		$db->conn->close();
 		return $cars;
