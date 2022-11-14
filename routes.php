@@ -58,36 +58,3 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
 	}
 }
-
-// $params = ItemController::getfilterParams();
-//
-// IS KART UZEJUS I PUSLAPI IMETA I KATAGORIJA ALL, IR CHEKINAM TAM, KAD PADAVUS KITA KATEGORIJA JOS NEPERMUSTU ALL
-//
-// if (!isset($_GET['category'])) {
-// 	$_GET['category'] = "all";
-// }
-
-// //
-// // TIKRINAM AR NUSETINTA PRICE, JEI NE, KAD GRAZINTU VISUS ITEM
-// //
-// if (!isset($_GET['price'])) {
-// 	$items = ItemController::index();
-// }
-// // print_r($_GET);
-
-// //
-// // FILTRUOJAM PAGAL KATEGORIJA
-// //
-// if (isset($_GET['category'])) {
-// 	$items = ItemController::showFiltered();
-// 	// header('Location: ./index.php');
-// 	// die;
-// }
-// //
-// // FILTRUOJAM PAGAL PRICE
-// //
-// if (isset($_GET['price'])) {
-
-// 	// print_r($items) {
-// 	$items = ItemController::showSorted();
-// }
