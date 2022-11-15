@@ -2,8 +2,7 @@
 session_start();
 $_INNER_PATH = $_SERVER['DOCUMENT_ROOT'] . "/php/multipagecrud";
 $_OUTER_PATH = "http://" . $_SERVER['SERVER_NAME'] . "/php/multipagecrud";
-// include "$_INNER_PATH/controllers/CarsController.php";
-// include "$_INNER_PATH/models/Car.php";
+
 
 ?>
 

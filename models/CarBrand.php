@@ -31,8 +31,7 @@ class CarBrand
 	public static function create()
 	{
 
-		// if (($_POST['category'] == "Virtuvė") || ($_POST['category'] == 'Miegamasis') || ($_POST['category'] == "Tualetas") || ($_POST['category'] == "Svetainė")) {
-		// print_r($_FILES);die;
+
 		$db = new DB();
 
 		$stmt = $db->conn->prepare("INSERT INTO `cars_brands` (`made_by`) VALUES (?)");
@@ -41,7 +40,7 @@ class CarBrand
 
 		$stmt->close();
 		$db->conn->close();
-		// }
+		
 	}
 
 	public static function find($id)

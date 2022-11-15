@@ -12,10 +12,7 @@ include $_INNER_PATH . "/routes.php";
         <label for="f2">Year</label>
         <input type="number"name="year" id="f2" class="form-control"  placeholder="eg. 2022">
     </div>
-    <!-- <div class="form-group">
-        <label for="f2">Made by</label>
-        <input type="text" name="made_by" id="f2" class="form-control"  placeholder="Company name">
-    </div> -->
+
     <div class="form-group">
         <label for="f2">Model</label>
         <input type="text" name="model" id="f2" class="form-control"  placeholder="Model of a car">

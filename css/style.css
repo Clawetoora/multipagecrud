@@ -1,6 +1,3 @@
-/* font-family: 'Fragment Mono', monospace; */
-/* font-family: 'Kanit', sans-serif; */
-
 body,
 html {
   background: linear-gradient(#000000, #2d3436);
@@ -8,7 +5,6 @@ html {
   min-height: 100vh;
   height: auto;
   font-family: "Kanit", sans-serif;
-  /* background-repeat: no-repeat; */
 }
 
 .container {
@@ -16,7 +12,6 @@ html {
 }
 .navbar {
   background-color: #2d3436;
-  /* color: white; */
   border-bottom: 1px solid #434343;
 }
 
@@ -68,13 +63,6 @@ html {
   margin: 0 auto;
 }
 
-/* .hero img {
-  object-fit: cover;
-  border-radius: 8px;
-  width: 100%;
-  position: relative;
-} */
-
 .filtras {
   min-width: 200px;
   max-width: 350px;
@@ -102,8 +90,6 @@ html {
   border-radius: 8px;
   color: white;
   flex-wrap: wrap;
-  /* justify-content: center; */
-  /* text-decoration: none; */
 }
 
 .car:hover {
@@ -126,17 +112,14 @@ img {
 
 #car-title {
   color: #8c1012;
-  /* text-decoration: none; */
 }
 
 #model-year {
   color: white;
-  /* text-decoration: none; */
 }
 
 #about-car {
   color: #b8b8b8;
-  /* text-decoration: none; */
 }
 
 .form-control {

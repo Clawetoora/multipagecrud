@@ -39,17 +39,6 @@ class CarsController
 		Car::destroy($_POST['id']);
 	}
 
-	// public static function getfilterParams()
-	// {
-	// 	return Car::getfilterParams();
-	// }
-
-	// public static function filter()
-	// {
-	// 	$cars = Car::filter();
-	// 	return $cars;
-	// }
-
 	public static function filter()
 	{
 		$cars = Car::filter();
@@ -60,15 +49,5 @@ class CarsController
 		$cars = Car::search();
 		return $cars;
 	}
-	// public static function showFiltered()
-	// {
-	// 	$items = Item::filteredItems($_GET['category']);
-	// 	return $items;
-	// }
 
-	// public static function showSorted()
-	// {
-	// 	$items = Item::sortedItems($_GET['price']);
-	// 	return $items;
-	// }
 }

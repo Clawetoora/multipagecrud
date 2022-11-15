@@ -43,8 +43,6 @@ class Car
 	public static function create()
 	{
 
-		// if (($_POST['category'] == "Virtuvė") || ($_POST['category'] == 'Miegamasis') || ($_POST['category'] == "Tualetas") || ($_POST['category'] == "Svetainė")) {
-		// print_r($_FILES);die;
 		$db = new DB();
 		$filename = $_FILES["image"]["name"];
 		$tempname = $_FILES["image"]["name"];
@@ -127,7 +125,9 @@ class Car
 		$db = new DB();
 		$query = "SELECT `c`.`id` , `c`.`year`, `c`.`model`, `c`.`about`, `c`.`price`, `c`.`image`, `c`.`made_by_id`, `cb`.`made_by`   FROM `cars` `c` join `cars_brands` `cb` ON `cb` . `id` = `c` . `made_by_id` ";
 		$first = true;
-		if (($_GET['carBrand'] != "")) {
+		if (!isset($_GET['carBrand'])) {
+			$query .= "";
+		} else if (($_GET['carBrand'] != "")) {
 			$first = false;
 			$query .= "WHERE `made_by_id` =  \"" . $_GET['carBrand'] . "\"" . " ";
 		}
