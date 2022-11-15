@@ -50,6 +50,11 @@ class CarsController
 	// 	return $cars;
 	// }
 
+	public static function filter()
+	{
+		$cars = Car::filter();
+		return $cars;
+	}
 	public static function search()
 	{
 		$cars = Car::search();

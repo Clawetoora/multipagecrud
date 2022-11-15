@@ -1,19 +1,17 @@
-<?php include "./components/head.php";
+<?php
+$_INNER_PATH = $_SERVER['DOCUMENT_ROOT'] . "/php/multipagecrud";
+$_OUTER_PATH = "http://" . $_SERVER['SERVER_NAME'] . "/php/multipagecrud";
+include $_INNER_PATH . "/components/head.php";
 include $_INNER_PATH . "/routes.php";
 ?>
       <div class="container d-flex flex-column">
-      <div class="hero">
-        <!-- <img src="./images/hero4.jpg" alt=""> -->
-      <div class="filtras">
-        <?php include $_INNER_PATH . "/components/filter.php"?>
-      </div>
-      </div>
+
       <?php foreach ($cars as $car) {?>
 
 
         <a href="<?=$_OUTER_PATH . '/views/cars/show.php?show=' . "&id=$car->id"?>" class="car mb-3 text-decoration-none">
           <div class="img-container">
-            <img src="./images/<?=$car->image?>" alt="" />
+            <img src="<?=$_OUTER_PATH . "/images/" . $car->image?>" alt="" />
           </div>
           <div class="about-container">
           <h1 id="car-title"><?=$car->madeBy?></h1>

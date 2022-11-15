@@ -31,7 +31,7 @@ $_OUTER_PATH = "http://" . $_SERVER['SERVER_NAME'] . "/php/multipagecrud";
   </head>
   <body>
     <div class="container">
-      <nav class="navbar navbar-expand-lg mb-5">
+      <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <a class="navbar-brand" href="<?=$_OUTER_PATH?>/index.php">Auto</a>
           <button
@@ -52,6 +52,12 @@ $_OUTER_PATH = "http://" . $_SERVER['SERVER_NAME'] . "/php/multipagecrud";
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="<?=$_OUTER_PATH?>/views/cars/add.php">Add new car</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?=$_OUTER_PATH?>/views/carBrand/index.php">Show brands</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?=$_OUTER_PATH?>/views/carBrand/add.php">Add new brand</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="<?=$_OUTER_PATH?>/login.php">Log in</a>

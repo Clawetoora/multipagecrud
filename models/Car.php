@@ -120,5 +120,60 @@ class Car
 		return $cars;
 	}
 
+	public static function filter()
+	{
+		// print_r($_GET);die;
+		$cars = [];
+		$db = new DB();
+		$query = "SELECT `c`.`id` , `c`.`year`, `c`.`model`, `c`.`about`, `c`.`price`, `c`.`image`, `c`.`made_by_id`, `cb`.`made_by`   FROM `cars` `c` join `cars_brands` `cb` ON `cb` . `id` = `c` . `made_by_id` ";
+		$first = true;
+		if (($_GET['carBrand'] != "")) {
+			$first = false;
+			$query .= "WHERE `made_by_id` =  \"" . $_GET['carBrand'] . "\"" . " ";
+		}
+
+		if ($_GET['from'] != "") {
+			$query .= (($first) ? "WHERE" : "AND") . " `price` >= " . $_GET['from'] . " ";
+			$first = false;
+		}
+		if ($_GET['to'] != "") {
+			$query .= (($first) ? "WHERE" : "AND") . " `price` <= " . $_GET['to'] . " ";
+			$first = false;
+		}
+
+		if (!isset($_GET['sort'])) {
+			$query .= "";
+		} else {
+
+			switch ($_GET['sort']) {
+
+				case '1':
+					$query .= "ORDER BY `price`";
+					break;
+
+				case '2':
+					$query .= "ORDER BY `price` DESC";
+					break;
+
+				case '3':
+					$query .= "ORDER BY `made_by`";
+					break;
+
+				case '4':
+					$query .= "ORDER BY `made_by` DESC";
+					break;
+			}
+		}
+		// print_r($_GET);
+		// print_r($query);die;
+		$result = $db->conn->query($query);
+
+		while ($row = $result->fetch_assoc()) {
+			$cars[] = new Car($row['id'], $row['year'], $row['model'], $row['about'], $row['price'], $row['image'], $row['made_by_id'], $row['made_by']);
+		}
+		$db->conn->close();
+		return $cars;
+	}
+
 // }
 }

@@ -23,7 +23,7 @@ class CarsBrandController
 
 	public static function update()
 	{
-		$brand = new Car();
+		$brand = new CarBrand();
 		$brand->id = $_POST['id'];
 		$brand->madeBy = $_POST['made_by'];
 

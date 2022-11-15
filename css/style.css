@@ -53,6 +53,46 @@ html {
   z-index: -1;
 }
 
+/* HERO SECTION */
+
+.hero {
+  width: 100%;
+  height: 500px;
+  background-image: url("../images/hero4.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding-right: 100px;
+  margin: 0 auto;
+}
+
+/* .hero img {
+  object-fit: cover;
+  border-radius: 8px;
+  width: 100%;
+  position: relative;
+} */
+
+.filtras {
+  min-width: 200px;
+  max-width: 350px;
+  color: white;
+  border: 1px solid white;
+  background-color: #2d3436f0;
+  height: min-content;
+  padding: 3%;
+  border-radius: 10px;
+}
+
+.price-range {
+  display: flex;
+  gap: 10px;
+}
+
+/* CAR LIST SECTION */
+
 .car {
   display: flex;
   height: auto;
@@ -197,6 +237,7 @@ img {
   border: 1px solid #8c1012;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 10px;
 }
 
 .car-card-img {
@@ -291,4 +332,11 @@ img {
 .form-select option:hover {
   color: white;
   background-color: #2d4a52;
+}
+
+@media (max-width: 769px) {
+  .hero {
+    align-items: center;
+    padding: 0;
+  }
 }
