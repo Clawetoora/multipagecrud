@@ -36,4 +36,18 @@
 
             <button type="submit" name="filter" class="btn-save mt-3 mb-3">Find</button>
         </form>
+
+        <form class="d-flex flex-column search-form" role="search">
+        <label class="mb-2">Or use search</label>
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                name="search"
+              />
+              <button class="btn btn-search" type="submit">
+                Search
+              </button>
+            </form>
 </div>

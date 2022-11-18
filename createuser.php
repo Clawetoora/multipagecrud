@@ -1,4 +1,5 @@
 <?php
+session_start();
 $_INNER_PATH = $_SERVER['DOCUMENT_ROOT'] . "/php/multipagecrud";
 $_OUTER_PATH = "http://" . $_SERVER['SERVER_NAME'] . "/php/multipagecrud";
 // include "$_INNER_PATH/controllers/CarsController.php";
@@ -19,25 +20,27 @@ $_OUTER_PATH = "http://" . $_SERVER['SERVER_NAME'] . "/php/multipagecrud";
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="<?=$_OUTER_PATH . "/css/loginstyle.css"?>" />
-    <title>Login</title>
+    <title>Create user</title>
   </head>
   <body>
     <div class="login-container">
-      <h1><ion-icon name="lock-open-outline"></ion-icon></h1>
-      <form class="login-form" action="<?=$_OUTER_PATH . "/routes.php"?>" method="POST">
+      <h1><ion-icon name="checkbox-outline"></ion-icon></h1>
+      <form class="login-form"  action="<?=$_OUTER_PATH . "/routes.php"?>" method="POST">
         <input
           type="text"
-          name="username"
+          name="usercreate"
           id="username"
           placeholder="Username"
+          required
         />
         <input
           type="password"
-          name="password"
+          name="passcreate"
           id="password"
           placeholder="Password"
+          required
         />
-        <button type="submit">LOG IN</button>
+        <button type="submit" >Create user</button>
         <a href="">Forgot user name or password?</a>
       </form>
     </div>

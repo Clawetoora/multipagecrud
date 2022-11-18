@@ -4,12 +4,21 @@ $_INNER_PATH = $_SERVER['DOCUMENT_ROOT'] . "/php/multipagecrud";
 $_OUTER_PATH = "http://" . $_SERVER['SERVER_NAME'] . "/php/multipagecrud";
 include $_INNER_PATH . "/controllers/CarsController.php";
 include $_INNER_PATH . "/controllers/CarsBrandController.php";
+include $_INNER_PATH . "/controllers/UserController.php";
 
 $edit = false;
 
 // print_r($_SERVER['REQUEST_URI']);
+if (isset($_POST['usercreate']) && isset($_POST['passcreate'])) {
+	UserController::createtUser();
+	header("Location: http://" . $_SERVER['SERVER_NAME'] . "/php/multipagecrud/login.php");
+}
+
 $cars = CarsController::index();
 $carBrands = CarsBrandController::index();
+if (isset($_GET['search'])) {
+	$cars = CarsController::search();
+}
 
 if (isset($_GET['filter']) || isset($_GET['from']) || isset($_GET['to']) || isset($_GET['sort'])) {
 	$cars = CarsController::filter();

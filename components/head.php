@@ -3,7 +3,6 @@ session_start();
 $_INNER_PATH = $_SERVER['DOCUMENT_ROOT'] . "/php/multipagecrud";
 $_OUTER_PATH = "http://" . $_SERVER['SERVER_NAME'] . "/php/multipagecrud";
 
-
 ?>
 
 
@@ -58,22 +57,18 @@ $_OUTER_PATH = "http://" . $_SERVER['SERVER_NAME'] . "/php/multipagecrud";
               <li class="nav-item">
                 <a class="nav-link" href="<?=$_OUTER_PATH?>/views/carBrand/add.php">Add new brand</a>
               </li>
+
+            </ul>
+            <div class="d-flex search-form" role="search">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="<?=$_OUTER_PATH?>/createuser.php">Create user</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="<?=$_OUTER_PATH?>/login.php">Log in</a>
               </li>
             </ul>
-            <form class="d-flex search-form" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                name="search"
-              />
-              <button class="btn btn-search" type="submit">
-                Search
-              </button>
-            </form>
+            </div>
           </div>
         </div>
       </nav>

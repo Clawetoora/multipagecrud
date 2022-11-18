@@ -9,7 +9,7 @@ class DB
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
-		$db = "auto_portalas";
+		$db = "auto_portalas1";
 		$this->conn = new mysqli($servername, $username, $password, $db);
 	}
 

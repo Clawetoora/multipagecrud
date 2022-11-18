@@ -16,7 +16,7 @@ if (isset($_SESSION['POST'])) {
 <form class=" mt-3 login-form"id="forma" action="" method="post"  name="update" enctype="multipart/form-data" >
     <div class="login-form form-group">
         <label for="f2">Year</label>
-        <input type="number"name="year" id="f2" class="form-control" value="<?=($old) ? $_SESSION['POST']['model'] : $car->year?>" placeholder="eg. 2022">
+        <input type="number"name="year" id="f2" class="form-control" value="<?=($old) ? $_SESSION['POST']['year'] : $car->year?>" placeholder="eg. 2022">
     </div>
 
     <div class="form-group">

@@ -10,7 +10,6 @@ include $_INNER_PATH . "/routes.php";
       </div>
       <?php foreach ($cars as $car) {?>
 
-
         <a href="<?=$_OUTER_PATH . '/views/cars/show.php?show=' . "&id=$car->id"?>" class="car mb-3 text-decoration-none">
           <div class="img-container">
             <img src="./images/<?=$car->image?>" alt="" />

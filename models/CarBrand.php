@@ -31,7 +31,6 @@ class CarBrand
 	public static function create()
 	{
 
-
 		$db = new DB();
 
 		$stmt = $db->conn->prepare("INSERT INTO `cars_brands` (`made_by`) VALUES (?)");
@@ -40,7 +39,7 @@ class CarBrand
 
 		$stmt->close();
 		$db->conn->close();
-		
+
 	}
 
 	public static function find($id)
@@ -81,16 +80,16 @@ class CarBrand
 
 	public static function search()
 	{
-		$brands = [];
+		$cars = [];
 		$db = new DB();
-		$query = "SELECT * FROM `cars_brands` WHERE `model` LIKE \"%" . $_GET['search'] . "%\"";
+		$query = "SELECT * FROM `cars_brands` WHERE `made_by` LIKE \"%" . $_GET['search'] . "%\"";
 		$result = $db->conn->query($query);
 
 		while ($row = $result->fetch_assoc()) {
 			$brands[] = new CarBrand($row['id'], $row['made_by']);
 		}
 		$db->conn->close();
-		return $brands;
+		return $cars;
 	}
 
 // }
